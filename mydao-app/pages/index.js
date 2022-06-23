@@ -235,6 +235,7 @@ export default function Home() {
     }
   }, [selectedTab]);
 
+  const sProposals = proposals.sort((a, b) => (a.deadline.getTime() > b.deadline.getTime()) ? -1 : 1);
   // Render the contents of the appropriate tab based on `selectedTab`
   function renderTabs() {
     if (selectedTab === "Create Proposal") {
@@ -285,7 +286,7 @@ export default function Home() {
           Loading... Waiting for transaction...
         </div>
       );
-    } else if (proposals.length === 0) {
+    } else if (sProposals.length === 0) {
       return (
         <div className={styles.description}>
           No proposals have been created
@@ -294,7 +295,7 @@ export default function Home() {
     } else {
       return (
         <div>
-          {proposals.map((p, index) => (
+          {sProposals.map((p, index) => (
             <div key={index} className={styles.proposalCard}>
               <p>Proposal ID: {p.proposalId}</p>
               <p>Fake NFT to Purchase: {p.nftTokenId}</p>
