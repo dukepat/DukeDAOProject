@@ -238,7 +238,7 @@ export default function Home() {
   
   // Sort the proposal in descending order by datetime.
   const sProposals = proposals.sort((a, b) => (a.deadline.getTime() > b.deadline.getTime()) ? -1 : 1);
-  
+
   // Render the contents of the appropriate tab based on `selectedTab`
   function renderTabs() {
     if (selectedTab === "Create Proposal") {
@@ -382,7 +382,7 @@ export default function Home() {
       </div>
 
       <footer className={styles.footer}>
-        Made with &#10084; by Duke Crypto Devs V2
+        Made with &#10084; by Duke Crypto Devs V3
       </footer>
     </div>
   );
