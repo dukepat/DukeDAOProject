@@ -234,8 +234,11 @@ export default function Home() {
       fetchAllProposals();
     }
   }, [selectedTab]);
-
+  
+  
+  // Sort the proposal in descending order by datetime.
   const sProposals = proposals.sort((a, b) => (a.deadline.getTime() > b.deadline.getTime()) ? -1 : 1);
+  
   // Render the contents of the appropriate tab based on `selectedTab`
   function renderTabs() {
     if (selectedTab === "Create Proposal") {
